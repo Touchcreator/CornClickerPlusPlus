@@ -1,63 +1,28 @@
 #include "raylib.h"
-#include "second.h"
+#include "defines.h"
 
 int main() 
 {
-    // Initialization
-    //--------------------------------------------------------------------------------------
-    const int screenWidth = 800;
-    const int screenHeight = 450;
-	
-	Fun1();
 
-    InitWindow(screenWidth, screenHeight, "raylib");
+    Texture2D cornSprite;
 
-    Camera camera = { 0 };
-    camera.position = (Vector3){ 10.0f, 10.0f, 8.0f };
-    camera.target = (Vector3){ 0.0f, 0.0f, 0.0f };
-    camera.up = (Vector3){ 0.0f, 1.0f, 0.0f };
-    camera.fovy = 60.0f;
-    camera.projection = CAMERA_PERSPECTIVE;
-    
-    Vector3 cubePosition = { 0 };
+    InitWindow(SCREENWIDTH, SCREENHEIGHT, "CornClicker++");
 
-    SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
-    //--------------------------------------------------------------------------------------
+    cornSprite = LoadTexture("resources/corn.png");
 
-    // Main game loop
-    while (!WindowShouldClose())    // Detect window close button or ESC key
+    SetTargetFPS(144);
+    int corn = 0;
+
+    while (!WindowShouldClose())
     {
-        // Update
-        //----------------------------------------------------------------------------------
-        UpdateCamera(&camera, CAMERA_ORBITAL);
-        //----------------------------------------------------------------------------------
-
-        // Draw
-        //----------------------------------------------------------------------------------
         BeginDrawing();
 
-            ClearBackground(RAYWHITE);
-
-            BeginMode3D(camera);
-
-                DrawCube(cubePosition, 2.0f, 2.0f, 2.0f, RED);
-                DrawCubeWires(cubePosition, 2.0f, 2.0f, 2.0f, MAROON);
-                DrawGrid(10, 1.0f);
-
-            EndMode3D();
-
-            DrawText("This is a raylib example", 10, 40, 20, DARKGRAY);
-
-            DrawFPS(10, 10);
+            ClearBackground(DARKGRAY);
+            DrawTexture(cornSprite,(SCREENWIDTH-cornSprite.width)/2,(SCREENHEIGHT-cornSprite.height)/2,WHITE);
 
         EndDrawing();
-        //----------------------------------------------------------------------------------
     }
 
-    // De-Initialization
-    //--------------------------------------------------------------------------------------
-    CloseWindow();        // Close window and OpenGL context
-    //--------------------------------------------------------------------------------------
+    CloseWindow();
 
-    return 0;
 }
