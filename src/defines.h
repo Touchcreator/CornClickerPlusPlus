@@ -3,5 +3,6 @@
 
 #define SCREENHEIGHT 450
 #define SCREENWIDTH 800
+#define STARTMULTI 1
 
 #endif
