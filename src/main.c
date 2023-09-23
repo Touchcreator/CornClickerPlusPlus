@@ -1,5 +1,6 @@
 #include "raylib.h"
 #include "defines.h"
+#include "corn.h"
 
 int main() 
 {
@@ -11,7 +12,6 @@ int main()
     cornSprite = LoadTexture("resources/corn.png");
 
     SetTargetFPS(144);
-    int corn = 0;
 
     while (!WindowShouldClose())
     {
