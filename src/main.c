@@ -1,6 +1,7 @@
 #include "raylib.h"
 #include "defines.h"
 #include "corn.h"
+#include <stdio.h>
 
 int main() 
 {
