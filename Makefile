@@ -124,7 +124,7 @@ ifeq ($(PLATFORM),PLATFORM_WEB)
     CC = emcc
 endif
 
-MAKE = mingw32-make
+MAKE = C:\raylib\w64devkit\bin\mingw32-make.exe
 
 ifeq ($(PLATFORM),PLATFORM_DESKTOP)
     ifeq ($(PLATFORM_OS),LINUX)
